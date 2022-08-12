@@ -15,44 +15,44 @@ public class DeliverySystem {
         int loginId = scanner.nextInt();
         System.out.println("Please enter your password");
         String passWord = scanner.next();
-        final static int TITAN = 199;
-        final static int FASTRACK = 991;
-        final static int SONATA = 919;
-        final static int APPLE = 999;
-        final static int TITAN_CLASSICBLACK = 333;
-        final static int TITAN_THINBLACKLEATHER = 335;
-        final static int TITAN_CASIOEDIFICE = 337;
-        final static int TITAN_ULTRATHIN = 339;
-        final static int FASTRACK_CLASSICNEW = 433;
-        final static int FASTRACK_THINWHITELEATHER = 435;
-        final static int FASTRACK_CASIOEDIFICEWHITE = 437;
-        final static int FASTRACK_THINWHITE = 439;
-        final static int SONATA_BASIC = 533;
-        final static int SONATA_LEATHERBLACK = 535;
-        final static int SONATA_GOLDYELLOW= 537;
-        final static int SONATA_ULTRATHIN = 539;
-        final static int APPLE_ULTRATHIN = 633;
-        final static int APPLE_LEATHERBROWN = 635;
-        final static int APPLE_GOLDYELLOW = 637;
-        final static int APPLE_CLASIC= 639;
+        final  int TITAN = 199;
+        final  int FASTRACK = 991;
+        final  int SONATA = 919;
+        final  int APPLE = 999;
+        final  int TITAN_CLASSICBLACK = 333;
+        final  int TITAN_THINBLACKLEATHER = 335;
+        final  int TITAN_CASIOEDIFICE = 337;
+        final  int TITAN_ULTRATHIN = 339;
+        final  int FASTRACK_CLASSICNEW = 433;
+        final  int FASTRACK_THINWHITELEATHER = 435;
+        final  int FASTRACK_CASIOEDIFICEWHITE = 437;
+        final  int FASTRACK_THINWHITE = 439;
+        final  int SONATA_BASIC = 533;
+        final  int SONATA_LEATHERBLACK = 535;
+        final  int SONATA_GOLDYELLOW= 537;
+        final  int SONATA_ULTRATHIN = 539;
+        final  int APPLE_ULTRATHIN = 633;
+        final  int APPLE_LEATHERBROWN = 635;
+        final  int APPLE_GOLDYELLOW = 637;
+        final  int APPLE_CLASIC= 639;
         System.out.println("Available branded product"
-                              + "\n1.Titan( ID = TITAN)"
-                              + "\n2.Fastrack(ID = FASTRACK)" 
-                              + "\n3.Sonata(ID = SONATA)" 
-                              + "\n4.apple(ID = APPLE)");
+                              + "\n1.Titan( ID = 199)"
+                              + "\n2.Fastrack(ID = 991)" 
+                              + "\n3.Sonata(ID = 919)" 
+                              + "\n4.apple(ID = 999)");
         System.out.println(" \n Please enter brand Id you want");
         int brandId = scanner.nextInt();
  
         if (brandId == TITAN) {
             System.out.println("\n Titan models are" 
-                                 + "\n1.modelName = TITAN_CLASSICBLACK "
-                                 + "\n2.modelName = TITAN_THINBLACKLEATHER"
-                                 + "\n3.modelName = TITAN_CASIOEDIFICE" 
-                                 + "\n4.modelName = TITAN_ULTRATHIN");
-            System.out.println("Please enter model name you want");
-            int modelName= scanner.nextInt();
+                                 + "\n1.modelNumber = 333"
+                                 + "\n2.modelNumber = 335"
+                                 + "\n3.modelNumber = 337" 
+                                 + "\n4.modelNumber = 339");
+            System.out.println("Please enter model number you want");
+            int modelNumber= scanner.nextInt();
 
-            switch (modelName) {
+            switch (modelNumber) {
             case TITAN_CLASSICBLACK:
                 System.out.println("prize is Rs:6,600 \n 30% Off \n offer prise Rs:4,620");
                 break;
@@ -75,14 +75,14 @@ public class DeliverySystem {
             }
         } else if (brandId == FASTRACK) {
             System.out.println("Fastrack models are" 
-                                 + "\n1.modelName = FASTRACK_CLASSICNEW"
-                                 + "\n2.modelName = FASTRACK_THINWHITELEATHER"
-                                 + "\n3.modelName = FASTRACK_CASIOEDIFICEWHITE" 
-                                 + "\n4.modelName = FASTRACK_THINWHITE");
+                                 + "\n1.modelNumber = 433"
+                                 + "\n2.modelNumber = 435"
+                                 + "\n3.modelNumber = 437" 
+                                 + "\n4.modelNumber = 439");
             System.out.println("Please enter modle name you want");
-            int modelName = scanner.nextInt();
+            int modelNumber = scanner.nextInt();
             
-            switch (modelName) {
+            switch (modelNumber) {
             case FASTRACK_CLASSICNEW:
                 System.out.println("prize is Rs:7,000 \n 30% Off \n offer prise Rs:4,900");
                 break;
@@ -105,14 +105,14 @@ public class DeliverySystem {
             }
         } else if (brandId == SONATA) {
             System.out.println("Sonata models are"
-                                 + "\n1.modelName = SONATA_BASIC"
-                                 + "\n2.modelName = SONATA_LEATHERBLACK"
-                                 + "\n3.modelName = SONATA_GOLDYELLOW" 
-                                 + "\n4.modelName = SONATA_ULTRATHIN ");
+                                 + "\n1.modelName = 533"
+                                 + "\n2.modelName = 535"
+                                 + "\n3.modelName = 537" 
+                                 + "\n4.modelName = 539");
             System.out.println("Please enter modelNo you want");
-            int modelName = scanner.nextInt();
+            int modelNumber = scanner.nextInt();
 
-            switch (modelName) {
+            switch (modelNumber) {
             case SONATA_BASIC:
                 System.out.println("prize is Rs:6,000 \n 30% Off \n offer prise Rs:4,200");
                 break;
@@ -135,14 +135,14 @@ public class DeliverySystem {
             }
         } else if (brandId == APPLE) {
             System.out.println("Apple models are" 
-                                 + "\n1.modelName = APPLE_ULTRATHIN"
-                                 + "\n2.modelName = APPLE_LEATHERBROWN"
-                                 + "\n3.modelName = APPLE_GOLDYELLOW" 
-                                 + "\n4.modelName = APPLE_CLASIC");
-            System.out.println("Please enter model Name you want");
-            int modelName = scanner.nextInt();
+                                 + "\n1.modelName = 633"
+                                 + "\n2.modelName = 635"
+                                 + "\n3.modelName = 637" 
+                                 + "\n4.modelName = 639");
+            System.out.println("Please enter model Number you want");
+            int modelnumber = scanner.nextInt();
 
-            switch (modelname) {
+            switch (modelnumber) {
             case APPLE_ULTRATHIN:
                 System.out.println("prize is Rs:45,000 \n 30% Off \n offer prise Rs:31,500");
                 break;
@@ -170,7 +170,7 @@ public class DeliverySystem {
          int entireModelnumber [] = {333,335,337,339,433,435,437,
                                         439,533,535,537,539,633,635,637,639};
         
-            for (int model = 0; model < entireModelno.length; model++) {
+            for (int model = 0; model < entireModelnumber.length; model++) {
                 System.out.println("confirm the watche you need \n==> please enter modele no ");
                 int confirmModelno = scanner.nextInt();     
         
