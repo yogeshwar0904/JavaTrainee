@@ -4,8 +4,8 @@ import java.util.Arrays;
 /**
  *Here we sorting the employee profile based on
  *some condition.They are given below.
- * @version 16 Aug 2022
- * @author Yogeshwar
+ * @version     18.0.2 16 Aug 2022
+ * @author      Yogeshwar
  */
 
 public class EmployeeProfile {
@@ -35,8 +35,8 @@ public class EmployeeProfile {
 
         for(int element = 0; element < employeeCount; element++) {
             if(employeeSalary[element] > salarySort) {
-                System.out.println(employeeNames[element] 
-                                   + " " + " employee yearn more than one lakhs");   
+                System.out.println(employeeNames[element]
+                                   + "  " + "employee yearn more than one lakhs");   
             }
         }
 
@@ -45,7 +45,7 @@ public class EmployeeProfile {
         for(int index = 0; index < employeeCount; index++) {
             if(employeeExperience[index] > experienceSort) {
                 System.out.println(employeeNames[index] 
-                                   + " " + " employee have more than five year of expirience ");
+                                   + " " + "employee have more than five year of expirience");
             }	
         }
     
@@ -103,7 +103,7 @@ public class EmployeeProfile {
 
         for (int index = 0; index < employeeCount; index++) {
             for (int number = 0; number < employeeCount; number++) {
-                if (SortedEmployeeExpirience[number] == employeeExperience[index] ) {
+                if (SortedEmployeeExpirience[number] == employeeExperience[index]) {
                     System.out.println(employeeNames[index] + " is "  
                                        + "top five expirienced people");
                 }
