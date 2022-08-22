@@ -33,19 +33,25 @@ public class EmployeeProfile {
 
         /*The employee earn more than onelakhs are sorted here*/
 
+        StringBuilder printStatement = new StringBuilder();
+        printStatement.append("  ");
+        printStatement.append("employee yearn more than one lakhs");
+
         for(int element = 0; element < employeeCount; element++) {
             if(employeeSalary[element] > salarySort) {
-                System.out.println(employeeNames[element]
-                                   + "  " + "employee yearn more than one lakhs");   
+                System.out.println(employeeNames[element] + printStatement);   
             }
         }
 
         /* The employee have more than five year expirience are sorted here*/
-         
+
+        StringBuilder printingStatement = new StringBuilder();
+        printingStatement.append(" "); 
+        printingStatement.append("employee have more than five year of expirience");
+    
         for(int index = 0; index < employeeCount; index++) {
             if(employeeExperience[index] > experienceSort) {
-                System.out.println(employeeNames[index] 
-                                   + " " + "employee have more than five year of expirience");
+                System.out.println(employeeNames[index] + printingStatement);
             }	
         }
     
@@ -64,11 +70,13 @@ public class EmployeeProfile {
                 }    
             }
         }
+        StringBuilder printTheStatement = new StringBuilder();
+        printTheStatement.append("is");
+        printTheStatement.append("highest expirienced people");
 
         for(int index = 0; index < employeeCount; index++) {
             if(employeeExperience[0] == employeeExperienceCopy[index]) {
-                 System.out.println(employeeNames[index]+ " is "  
-                                    + "highest expirienced people");   
+                 System.out.println(employeeNames[index] + printTheStatement);   
             }
         }
 
@@ -87,11 +95,13 @@ public class EmployeeProfile {
                 }    
             }       
         }
+        StringBuilder print = new StringBuilder();
+        print.append("is");
+        print.append("Getting highest salary");
 
         for(int index = 0; index < employeeCount; index++) {
             if(employeeSalary[0] == employeeSalaryCopy[index]) {
-                System.out.println(employeeNames[index]+ " is "  
-                                   + "Getting highest salary");   
+                System.out.println(employeeNames[index] + print);   
             }
         }
 
@@ -100,21 +110,21 @@ public class EmployeeProfile {
         for(int element = 0; element < employeeCount - 1; element++) {
             SortedEmployeeExpirience[element] = employeeExperience[element];
         }
+        StringBuilder cosncade = new StringBuilder();
+        concade.append("is");
+        concade.append("top five expirienced people");
 
         for (int index = 0; index < employeeCount; index++) {
             for (int number = 0; number < employeeCount; number++) {
                 if (SortedEmployeeExpirience[number] == employeeExperience[index]) {
-                    System.out.println(employeeNames[index] + " is "  
-                                       + "top five expirienced people");
+                    System.out.println(employeeNames[index] + concade);
                 }
             }
         }
     }
 }
 
-
-
-
+       
 
 
 
