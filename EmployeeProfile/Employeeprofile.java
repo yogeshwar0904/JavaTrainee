@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 /**
- *Here we sorting the employee profile based on
- *some condition.They are given below.
- * @version     18.0.2 16 Aug 2022
+ *Sorting the employee profile based on
+ *some condition.
+ * @version     1.0 16 Aug 2022
  * @author      Yogeshwar
  */
 
@@ -95,13 +95,13 @@ public class EmployeeProfile {
                 }    
             }       
         }
-        StringBuilder print = new StringBuilder();
-        print.append("is");
-        print.append("Getting highest salary");
+        StringBuilder statementLine = new StringBuilder();
+        statementLine.append("is");
+        statementLine.append("Getting highest salary");
 
         for(int index = 0; index < employeeCount; index++) {
             if(employeeSalary[0] == employeeSalaryCopy[index]) {
-                System.out.println(employeeNames[index] + print);   
+                System.out.println(employeeNames[index] + statementLine);   
             }
         }
 
@@ -110,14 +110,14 @@ public class EmployeeProfile {
         for(int element = 0; element < employeeCount - 1; element++) {
             SortedEmployeeExpirience[element] = employeeExperience[element];
         }
-        StringBuilder cosncade = new StringBuilder();
-        concade.append("is");
-        concade.append("top five expirienced people");
+        StringBuilder statement = new StringBuilder();
+        statement.append("is");
+        statement.append("top five expirienced people");
 
         for (int index = 0; index < employeeCount; index++) {
             for (int number = 0; number < employeeCount; number++) {
                 if (SortedEmployeeExpirience[number] == employeeExperience[index]) {
-                    System.out.println(employeeNames[index] + concade);
+                    System.out.println(employeeNames[index] + statement);
                 }
             }
         }
