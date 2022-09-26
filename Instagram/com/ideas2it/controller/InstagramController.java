@@ -3,6 +3,7 @@ package com.ideas2it.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ideas2it.constant.Constant;
 import com.ideas2it.model.UserProfile;
 import com.ideas2it.service.InstagramService;
 
@@ -40,10 +41,19 @@ public class InstagramController {
      * @return Map<String, UserProfile>
      *          
      */   
-    public Map<String, UserProfile> removeUser() { 
-        return instagramService.removeUser();
+    public String removeUser(String accountName) { 
+        return instagramService.removeUser(accountName);
     }
 
+    /* search the user
+     *
+     * @param 
+     * @return Map<String, UserProfile>
+     *          
+     */   
+    public UserProfile search(String accountName) { 
+        return instagramService.search(accountName);
+    }
     /**
      * display the user
      *
@@ -61,7 +71,7 @@ public class InstagramController {
      * @return Map<String, UserProfile>
      *          
      */   
-    public Map<String, UserProfile> updateUser() { 
-        return instagramService.updateUser();
+    public UserProfile updateUser(String accountName, String updateValue, int choice) { 
+        return instagramService.updateUser(accountName, updateValue, choice);   
     }  
 }

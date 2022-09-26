@@ -3,6 +3,7 @@ package com.ideas2it.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ideas2it.constant.Constant;
 import com.ideas2it.dao.InstagramDao;
 import com.ideas2it.model.UserProfile;
 
@@ -41,10 +42,19 @@ public class InstagramService {
      * @param 
      * @return Map<String, UserProfile>          
      */   
-    public Map<String, UserProfile> removeUser() { 
-         return instagramDao.removeUser();
+    public String removeUser(String accountName) { 
+        return instagramDao.removeUser(accountName);
     }
 
+    /**
+     * search the user
+     *
+     * @param 
+     * @return Map<String, UserProfile>          
+     */   
+    public UserProfile search(String accountName) { 
+        return instagramDao.search(accountName);
+    }
     /**
      * Display the user
      *
@@ -58,11 +68,14 @@ public class InstagramService {
     /**
      * update the user
      *
-     * @param 
+     * @param String accountName 
+     *        accountName of the user
+     * @param int choice
+     *        choice of the user
      * @return Map<String, UserProfile>         
      */   
-    public Map<String, UserProfile> updateUser() { 
-        return instagramDao.updateUser();
+    public UserProfile updateUser(String accountName, String updateValue,int choice) { 
+        return instagramDao.updateUser(accountName, updateValue, choice);
     }
 
 }

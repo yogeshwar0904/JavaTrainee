@@ -3,6 +3,7 @@ package com.ideas2it.dao;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ideas2it.constant.Constant;
 import com.ideas2it.model.UserProfile;
 
 /**
@@ -38,8 +39,32 @@ public class InstagramDao {
      * @return Map<String, UserProfile>
      *          
      */   
-    public Map<String, UserProfile> removeUser() { 
-        return accounts;
+    public String removeUser(String accountName) { 
+        UserProfile userProfile = null;
+        userProfile = accounts.get(accountName);
+        if( null == userProfile) {
+            return "Invalid Id, please check your id and try again";
+        } else {
+            accounts.remove(accountName);
+            return "Account removed successfully";
+        }         
+    }
+
+    /**
+     * search the user
+     *
+     * @param 
+     * @return Map<String, UserProfile>
+     *          
+     */   
+    public UserProfile search(String accountName) { 
+        UserProfile userProfile = null;
+        userProfile = accounts.get(accountName);
+        if( null == userProfile) {
+            return null;
+        } else {
+            return userProfile;
+        }          
     }
  
     /**
@@ -59,7 +84,34 @@ public class InstagramDao {
      * @return Map<String, UserProfile>
      *          
      */   
-    public Map<String, UserProfile> updateUser() { 
-        return accounts;
+    public UserProfile updateUser(String accountName, String updateValue, int choice) {
+        UserProfile userProfile = null;
+        userProfile = accounts.get(accountName); 
+        if( null == userProfile) {
+            return null;
+        } else {
+        switch(choice) {
+            case Constant.UPDATEACCOUNTNAME:
+                userProfile.setAccountName(updateValue); 
+                break;
+
+            case Constant.UPDATEFIRSTNAME:
+                userProfile.setFirstName(updateValue);
+                break;
+
+            case Constant.UPDATELASTNAME:
+                userProfile.setLastName(updateValue);
+                break;
+
+            case Constant.UPDATEMOBILENUMBER:
+                userProfile.setMobileNumber(Long.parseLong(updateValue));
+                break;
+
+            case Constant.UPDATEPASSWORD:	
+                userProfile.setCreatePassword( updateValue);
+                break;
+        }
+        }
+        return userProfile;
     }
 }

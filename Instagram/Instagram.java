@@ -11,6 +11,6 @@ public class Instagram {
     
     public static void main(String[] args) { 
         UserView userView = new UserView();
-        userView.getUserSugestion();
+        userView.userInput();
     }
 }
