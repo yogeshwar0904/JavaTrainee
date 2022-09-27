@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.ideas2it.constant.Constant;
-import com.ideas2it.model.UserProfile;
+import com.ideas2it.model.User;
 
 /**
  * Create the function to run
@@ -14,7 +14,7 @@ import com.ideas2it.model.UserProfile;
  * @author     Yogeshwar
  */
 public class InstagramDao {
-    private Map<String, UserProfile> accounts;
+    private Map<String, User> accounts;
     
     public InstagramDao() {
         this.accounts = new HashMap<>();
@@ -24,10 +24,10 @@ public class InstagramDao {
      * Add the user
      *
      * @param accountName accountName of the user
-     * @param userProfile details of the user
-     * @return UserProfile
+     * @param user details of the user
+     * @return User
      */
-    public UserProfile addUser(String accountName, UserProfile user) {
+    public User add(String accountName, User user) {
         accounts.put(accountName, user);
         return user; 
     }
@@ -36,13 +36,13 @@ public class InstagramDao {
      * remove the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return Map<String, User>
      *          
      */   
-    public String removeUser(String accountName) { 
-        UserProfile userProfile = null;
-        userProfile = accounts.get(accountName);
-        if( null == userProfile) {
+    public String remove(String accountName) { 
+        User user = null;
+        user = accounts.get(accountName);
+        if( null == user) {
             return "Invalid Id, please check your id and try again";
         } else {
             accounts.remove(accountName);
@@ -54,16 +54,16 @@ public class InstagramDao {
      * search the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return Map<String, User>
      *          
      */   
-    public UserProfile search(String accountName) { 
-        UserProfile userProfile = null;
-        userProfile = accounts.get(accountName);
-        if( null == userProfile) {
+    public User search(String accountName) { 
+        User user = null;
+        user = accounts.get(accountName);
+        if( null == user) {
             return null;
         } else {
-            return userProfile;
+            return user;
         }          
     }
  
@@ -71,9 +71,9 @@ public class InstagramDao {
      * Display the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return Map<String, User>
      */  
-    public Map<String, UserProfile> displayUser() {
+    public Map<String, User> display() {
         return accounts;     
     }
 
@@ -81,37 +81,39 @@ public class InstagramDao {
      * update the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return Map<String, User>
      *          
      */   
-    public UserProfile updateUser(String accountName, String updateValue, int choice) {
-        UserProfile userProfile = null;
-        userProfile = accounts.get(accountName); 
-        if( null == userProfile) {
+    public User update(String accountName, String updateValue, int choice) {
+        User user = accounts.get(accountName); 
+        if (null == user) {
             return null;
         } else {
-        switch(choice) {
+            switch(choice) {
             case Constant.UPDATEACCOUNTNAME:
-                userProfile.setAccountName(updateValue); 
+                user.setAccountName(updateValue); 
                 break;
-
             case Constant.UPDATEFIRSTNAME:
-                userProfile.setFirstName(updateValue);
+                user.setFirstName(updateValue);
                 break;
 
             case Constant.UPDATELASTNAME:
-                userProfile.setLastName(updateValue);
+                user.setLastName(updateValue);
                 break;
 
             case Constant.UPDATEMOBILENUMBER:
-                userProfile.setMobileNumber(Long.parseLong(updateValue));
+                user.setMobileNumber(Long.parseLong(updateValue));
                 break;
 
             case Constant.UPDATEPASSWORD:	
-                userProfile.setCreatePassword( updateValue);
+                user.setCreatePassword( updateValue);
                 break;
+
+            default:
+                user.setFirstName(updateValue);
+                break;
+            }
         }
-        }
-        return userProfile;
+        return user;
     }
 }

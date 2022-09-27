@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.ideas2it.constant.Constant;
-import com.ideas2it.model.UserProfile;
+import com.ideas2it.model.User;
 import com.ideas2it.service.InstagramService;
 
 /**
@@ -26,52 +26,53 @@ public class InstagramController {
      *
      * @param String accountName
      *        name of the account
-     * @param UserProfile user
+     * @param User user
      *        details of the user
-     * @return UserProfile          
+     * @return User          
      */ 
-    public UserProfile addUser(String accountName, UserProfile user) {
-        return instagramService.addUser(accountName, user);    
+    public User add(String accountName, User user) {
+        return instagramService.add(accountName, user);    
     }
 
     /**
      * remove the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return Map<String, User>
      *          
      */   
-    public String removeUser(String accountName) { 
-        return instagramService.removeUser(accountName);
+    public String remove(String accountName) { 
+        return instagramService.remove(accountName);
     }
 
     /* search the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return Map<String, User>
      *          
      */   
-    public UserProfile search(String accountName) { 
+    public User search(String accountName) { 
         return instagramService.search(accountName);
     }
+
     /**
      * display the user
      *
      * @param 
-     * @return Map<String, UserProfile>          
+     * @return Map<String, User>          
      */   
-    public Map<String, UserProfile> displayUser() { 
-        return instagramService.displayUser();
+    public Map<String, User> display() { 
+        return instagramService.display();
     }
 
     /**
      * update the user
      *
      * @param 
-     * @return Map<String, UserProfile>
+     * @return 
      *          
      */   
-    public UserProfile updateUser(String accountName, String updateValue, int choice) { 
-        return instagramService.updateUser(accountName, updateValue, choice);   
+    public User update(String accountName, String updateValue, int choice) { 
+        return instagramService.update(accountName, updateValue, choice);   
     }  
 }

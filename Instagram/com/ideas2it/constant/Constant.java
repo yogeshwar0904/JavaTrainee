@@ -8,10 +8,10 @@ package com.ideas2it.constant;
  * @author      Yogeshwar
  */ 
 public class Constant {
-    public static final int ADDUSER = 1;
-    public static final int REMOVEUSER = 2;
-    public static final int DISPLAYUSER = 3;
-    public static final int UPDATEUSER = 4;
+    public static final int ADD = 1;
+    public static final int REMOVE = 2;
+    public static final int DISPLAY = 3;
+    public static final int UPDATE = 4;
     public static final int SEARCH = 5;
     public static final int EXIT = 6;
 
