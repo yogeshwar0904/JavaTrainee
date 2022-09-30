@@ -72,6 +72,7 @@ public class User {
             + "Account Name = " + getAccountName() + "\n"
             + "First name = " + getFirstName() + "\n"
             + "Last name = " + getLastName() + "\n"
+            + "Password = " + getCreatePassword() + "\n"
             + "Mobile Number = " + getMobileNumber()  
             + "\n______________________________________";
     }

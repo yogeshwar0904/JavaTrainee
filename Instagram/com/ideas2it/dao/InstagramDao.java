@@ -39,14 +39,15 @@ public class InstagramDao {
      * @return Map<String, User>
      *          
      */   
-    public String remove(String accountName) { 
+    public String deleteAccount(String accountName, String password) { 
         User user = null;
         user = accounts.get(accountName);
-        if( null == user) {
-            return "Invalid Id, please check your id and try again";
-        } else {
+ 	System.out.println("user" + user.getCreatePassword());
+        if(null != user && user.getCreatePassword().equals(password)) {
             accounts.remove(accountName);
             return "Account removed successfully";
+        } else {
+             return "Entered data Invalid!!";
         }         
     }
 
@@ -85,7 +86,8 @@ public class InstagramDao {
      *          
      */   
     public User update(String accountName, String updateValue, int choice) {
-        User user = accounts.get(accountName); 
+        User user = null;
+        user = accounts.get(accountName); 
         if (null == user) {
             return null;
         } else {

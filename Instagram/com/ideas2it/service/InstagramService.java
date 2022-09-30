@@ -42,8 +42,8 @@ public class InstagramService {
      * @param 
      * @return Map<String, UserProfile>          
      */   
-    public String remove(String accountName) { 
-        return instagramDao.remove(accountName);
+    public String deleteAccount(String accountName, String createPassword) { 
+        return instagramDao.deleteAccount(accountName, createPassword);
     }
 
     /**

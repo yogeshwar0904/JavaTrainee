@@ -48,7 +48,7 @@ public class UserView {
                 break;
 
             case Constant.REMOVE:
-                remove();
+                deleteAccount();
                 break;
 
             case Constant.DISPLAY:
@@ -78,19 +78,35 @@ public class UserView {
      * creates the multiple account 
      */   
     public void add() {
-        System.out.println("Create the Account Name");
-        String accountName = scanner.nextLine();
-        System.out.println("Enter the FirstName");
-        String firstName = scanner.nextLine();
-        System.out.println("Enter the LastName");
-        String lastName = scanner.nextLine();
-        System.out.println("Enter the Mobile Number");
-        long mobileNumber = scanner.nextLong(); 
+         
+        do {
+            System.out.println("Create the Account Name");
+            String accountName = scanner.nextLine();
+        } while (!instagramController.isValidAccountName(accountName));
+
+        do {
+            System.out.println("Enter the FirstName");
+            String firstName = scanner.nextLine();
+           } while (!instagramController.isValidName(firstName));
+
+        do {
+            System.out.println("Enter the LastName");
+            String lastName = scanner.nextLine();
+        } while (!instagramController.isValidName(lastName));
+
+        do {
+            System.out.println("Enter the Mobile Number");
+            long mobileNumber = scanner.nextLong();
+        } while (!instagramController.isValidMobileNumber(mobileNumber.toString())); 
         scanner.skip("\r\n");
-        System.out.println("Create the Password");
-        String createPassword = scanner.nextLine();   
+      
+        do {
+            System.out.println("Create the Password");
+            String createPassword = scanner.nextLine(); 
+        } while (instagramController.!isValidPassword(Createpassword)); 
+ 
         User user = new User(firstName, lastName, mobileNumber, createPassword, 
-                             accountName);
+                              accountName);
         System.out.println(" Account Profile details\n" + instagramController
                              .add(accountName, user));    
     }
@@ -98,17 +114,19 @@ public class UserView {
     /**
      * remove the Account    
      */
-    public void remove() {
+    public void deleteAccount() {
         System.out.println("Enter the account name you want to remove");
         String accountName = scanner.nextLine();
-        System.out.println(instagramController.remove(accountName));
+        System.out.println("Enter the password of your account");
+        String createPassword = scanner.nextLine();
+        System.out.println(instagramController.deleteAccount(accountName, createPassword));
     }
-
+      
     /**
      * search the Account    
      */
     public void search() {
-        System.out.println("Enter the account name of user that you want to search");
+        System.out.println("Enter the account name you want to search");
         String accountName = scanner.nextLine();
 
         if (instagramController.search(accountName) == null) {
@@ -132,67 +150,72 @@ public class UserView {
         StringBuilder userMessage = new StringBuilder();
         int choice;
         String backToUpdate = "";
+        System.out.println("enter account name to update");
+        String accountName = scanner.next();
+        User user = null; 
+        userMessage.append(" Enter 1 for update account name")
+                   .append("\n Enter 2 for update first name")
+                   .append("\n Enter 3 for update last name")
+                   .append("\n Enter 4 for update mobile number")
+                   .append("\n Enter 5 for update password")
+                   .append("\n Enter 6 to Exit");
+        System.out.println(userMessage);
+        choice = scanner.nextInt();
+        scanner.skip("\r\n");     
 
+        switch (choice) {
+        case Constant.UPDATEACCOUNTNAME:
             System.out.println("enter account name to update");
-            String accountName = scanner.next();
-            userMessage.append(" Enter 1 for update account name")
-                .append("\n Enter 2 for update first name")
-                .append("\n Enter 3 for update last name")
-                .append("\n Enter 4 for update mobile number")
-                .append("\n Enter 5 for update password")
-                .append("\n Enter 6 to Exit");
+            String updateAccountName = scanner.nextLine();
+            user = instagramController.update(accountName, updateAccountName,
+                                              Constant.UPDATEACCOUNTNAME);
+            break;
+
+        case Constant.UPDATEFIRSTNAME:
+            System.out.println("Enter first name to update");
+            String updateFirstName = scanner.next();
+            user = instagramController.update(accountName, updateFirstName,
+                                              Constant.UPDATEFIRSTNAME);
+            break;
+
+        case Constant.UPDATELASTNAME:
+            System.out.println("enter last name to update");
+            String updateLastName = scanner.next();
+            user = instagramController.update(accountName, updateLastName,
+                                              Constant.UPDATELASTNAME);
+            break;
+
+        case Constant.UPDATEMOBILENUMBER:
+            System.out.println("enter mobile number to update");
+            long mobileNumber = scanner.nextLong();
+            String updateMobileNumber = String.valueOf(mobileNumber);
+            user = instagramController.update(accountName, updateMobileNumber,
+                                              Constant.UPDATEMOBILENUMBER);
+            break;
+
+        case Constant.UPDATEPASSWORD:
+            System.out.println("enter password to update");
+            String updatePassword = scanner.next();
+            user = instagramController.update(accountName, updatePassword,
+                                              Constant.UPDATEPASSWORD);
+            break;
+
+        case Constant.EXIT:
+            break;
+
+        default:
+            userMessage.delete(0, userMessage.length() - 1);
+            userMessage.append("Entered value is Invalid!! ")
+                       .append("\n enter correct option to update");
             System.out.println(userMessage);
-            choice = scanner.nextInt();
-            scanner.skip("\r\n");
-            User user;
+            break;
+       }
+       userMessage.delete(0, userMessage.length() - 1);  
 
-            switch (choice) {
-            case Constant.UPDATEACCOUNTNAME:
-                System.out.println("enter account name to update");
-                String updateAccountName = scanner.nextLine();
-                user = instagramController.update(accountName, updateAccountName,
-                                                  Constant.UPDATEACCOUNTNAME);
-                break;
-
-            case Constant.UPDATEFIRSTNAME:
-                System.out.println("Enter first name to update");
-                String updateFirstName = scanner.next();
-                user = instagramController.update(accountName, updateFirstName,
-                                                  Constant.UPDATEFIRSTNAME);
-                break;
-
-            case Constant.UPDATELASTNAME:
-                System.out.println("enter last name to update");
-                String updateLastName = scanner.next();
-                user = instagramController.update(accountName, updateLastName,
-                                                         Constant.UPDATELASTNAME);
-                break;
-
-            case Constant.UPDATEMOBILENUMBER:
-                System.out.println("enter mobile number to update");
-                long mobileNumber = scanner.nextLong();
-                String updateMobileNumber = String.valueOf(mobileNumber);
-                user = instagramController.update(accountName, updateMobileNumber,
-                                                         Constant.UPDATEMOBILENUMBER);
-                break;
-
-            case Constant.UPDATEPASSWORD:
-                System.out.println("enter password to update");
-                String updatePassword = scanner.next();
-                user = instagramController.update(accountName, updatePassword,
-                                                         Constant.UPDATEPASSWORD);
-                break;
-
-            case Constant.EXIT:
-                break;
-
-            default:
-                userMessage.delete(0, userMessage.length() - 1);
-                userMessage.append("Entered value is Invalid!! ");
-                userMessage.append("\n enter correct option to update");
-                System.out.println(userMessage);
-                break;
-            }
-            userMessage.delete(0, userMessage.length() - 1);   
+       if(user == null) {
+           System.out.println("User id is not valid");
+       } else {
+           System.out.println(user + "\nAccount Updated successfully");
+       }
     }
 }    
