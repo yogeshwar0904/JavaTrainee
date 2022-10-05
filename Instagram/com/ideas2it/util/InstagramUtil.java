@@ -1,5 +1,9 @@
-package com.ideas.util;
+package com.ideas2it.util;
 
+import java.util.regex.Pattern;   
+import java.util.regex.Matcher;
+
+import com.ideas2it.constant.Constant;
 
 /**
  *
@@ -10,15 +14,15 @@ public class InstagramUtil {
         return Pattern.matches(Constant.VALIDATE_ACCOUNTNAME, accountName);
     }
     
-    public static boolean isvalidName(String name) {
+    public static boolean isValidName(String name) {
         return Pattern.matches(Constant.VALIDATE_NAME, name);
     }
 
-    public static boolean isValidMobileNumber(String mobilenumber) {
-        return Pattern.matches(Constant.VALIDATE_MOBILENUMBER, mobileNumber);
+    public static boolean isValidMobileNumber(long mobileNumber) {
+        return Pattern.matches(Constant.VALIDATE_MOBILENUMBER, Long.toString(mobileNumber));
     }
   
-    public static boolean isValidPassword(String mobileNumber) {
-        return Pattern.matches(Constant.VALIDATE_MOBILENUMBER, String password);
+    public static boolean isValidPassword(String password) {
+        return Pattern.matches(Constant.VALIDATE_PASSWORD, password);
     }
 }

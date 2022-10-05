@@ -29,16 +29,16 @@ public class UserView {
      * on their choice.
      */ 
     public void userInput() {
-        StringBuilder userMessage = new StringBuilder();   
+        StringBuilder showStatement = new StringBuilder();   
         int choice;
         String backToMenu = "";
         do {
-            userMessage.append(" Enter 1 for add User"); 
-            userMessage.append("\n Enter 2 for remove user");
-            userMessage.append("\n Enter 3 for display the user");
-            userMessage.append("\n Enter 4 for update the User");
-            userMessage.append("\n Enter 5 for search ");
-            System.out.println(userMessage);
+            showStatement.append(" Enter 1 for add user") 
+                         .append("\n Enter 2 for remove user")
+                         .append("\n Enter 3 for display the user")
+                         .append("\n Enter 4 for update the user")
+                         .append("\n Enter 5 for search ");
+            System.out.println(showStatement);
             choice = scanner.nextInt();
             scanner.skip("\r\n");
 
@@ -67,7 +67,7 @@ public class UserView {
                 System.out.println("Entered value is Invalid!!");
                 break;
             }
-            userMessage.delete(0, userMessage.length() - 1);
+            showStatement.delete(0, showStatement.length() - 1);
             System.out.println("Enter Y for continue");
             System.out.println("Enter N for Exit");
             backToMenu = scanner.next();
@@ -77,59 +77,76 @@ public class UserView {
     /**
      * creates the multiple account 
      */   
-    public void add() {
+    private void add() {
+        String firstName;
+        String lastName; 
+        String accountName; 
+        String password;
+        long mobileNumber;
          
         do {
             System.out.println("Create the Account Name");
-            String accountName = scanner.nextLine();
+            accountName = scanner.nextLine();
+            if (!instagramController.isValidAccountName(accountName)) {
+                System.out.println("Entered wrong formate try again");
+            }
         } while (!instagramController.isValidAccountName(accountName));
 
         do {
             System.out.println("Enter the FirstName");
-            String firstName = scanner.nextLine();
-           } while (!instagramController.isValidName(firstName));
+            firstName = scanner.nextLine();
+            if (!instagramController.isValidName(firstName)) {
+                System.out.println("Entered wrong formate try again");
+            } 
+        } while (!instagramController.isValidName(firstName));
 
         do {
             System.out.println("Enter the LastName");
-            String lastName = scanner.nextLine();
+            lastname = scanner.nextLine();
+            if (!instagramController.isValidName(lastName)) {
+                System.out.println("Entered wrong formate try again");
+            } 
         } while (!instagramController.isValidName(lastName));
 
         do {
             System.out.println("Enter the Mobile Number");
-            long mobileNumber = scanner.nextLong();
-        } while (!instagramController.isValidMobileNumber(mobileNumber.toString())); 
+            mobileNumber = scanner.nextLong();
+            if (!instagramController.isValidMobileNumber(mobileNumber)) {
+                System.out.println("Entered wrong formate try again");
+            } 
+        } while (!instagramController.isValidMobileNumber(mobileNumber)); 
         scanner.skip("\r\n");
       
         do {
             System.out.println("Create the Password");
-            String createPassword = scanner.nextLine(); 
-        } while (instagramController.!isValidPassword(Createpassword)); 
- 
-        User user = new User(firstName, lastName, mobileNumber, createPassword, 
-                              accountName);
-        System.out.println(" Account Profile details\n" + instagramController
-                             .add(accountName, user));    
+            password = scanner.nextLine();
+            if (!instagramController.isValidPassword(password)) {
+                System.out.println("Entered wrong formate try again");
+            } 
+        } while (!instagramController.isValidPassword(password)); 
+        instagramController.add(accountName, firstName, lastName, mobileNumber, password);
+        System.out.println(" Account created sucessfully ");    
     }
 
     /**
      * remove the Account    
      */
-    public void deleteAccount() {
+    private void deleteAccount() {
         System.out.println("Enter the account name you want to remove");
         String accountName = scanner.nextLine();
         System.out.println("Enter the password of your account");
-        String createPassword = scanner.nextLine();
-        System.out.println(instagramController.deleteAccount(accountName, createPassword));
+        String password = scanner.nextLine();
+        System.out.println(instagramController.deleteAccount(accountName, password));
     }
       
     /**
      * search the Account    
      */
-    public void search() {
+    private void search() {
         System.out.println("Enter the account name you want to search");
         String accountName = scanner.nextLine();
 
-        if (instagramController.search(accountName) == null) {
+        if (null == instagramController.search(accountName)) {
             System.out.println("No account found");
         } else {
             System.out.println(instagramController.search(accountName));   
@@ -139,27 +156,27 @@ public class UserView {
     /**
      * display the Account
      */
-    public void display() {
+    private void display() {
         System.out.println(instagramController.display().values());
     }
 
     /**
      * update the Account    
      */
-    public void update() {
-        StringBuilder userMessage = new StringBuilder();
+    private void update() {
+        User user = new User();
+        StringBuilder showStatement = new StringBuilder();
         int choice;
         String backToUpdate = "";
         System.out.println("enter account name to update");
         String accountName = scanner.next();
-        User user = null; 
-        userMessage.append(" Enter 1 for update account name")
+        showStatement.append(" Enter 1 for update account name")
                    .append("\n Enter 2 for update first name")
                    .append("\n Enter 3 for update last name")
                    .append("\n Enter 4 for update mobile number")
                    .append("\n Enter 5 for update password")
                    .append("\n Enter 6 to Exit");
-        System.out.println(userMessage);
+        System.out.println(showStatement);
         choice = scanner.nextInt();
         scanner.skip("\r\n");     
 
@@ -204,15 +221,15 @@ public class UserView {
             break;
 
         default:
-            userMessage.delete(0, userMessage.length() - 1);
-            userMessage.append("Entered value is Invalid!! ")
-                       .append("\n enter correct option to update");
-            System.out.println(userMessage);
+            showStatement.delete(0, showStatement.length() - 1);
+            showStatement.append("Entered value is Invalid!! ")
+                         .append("\n enter correct option to update");
+            System.out.println(showStatement);
             break;
        }
-       userMessage.delete(0, userMessage.length() - 1);  
+       showStatement.delete(0, showStatement.length() - 1);  
 
-       if(user == null) {
+       if(null == user) {
            System.out.println("User id is not valid");
        } else {
            System.out.println(user + "\nAccount Updated successfully");

@@ -28,29 +28,31 @@ public class InstagramController {
     /**
      * add the user
      *
-     * @param String accountName
-     *        name of the account
-     * @param User user
+     * @param accountName
+     *        account name of user
+     * @param users
      *        details of the user
-     * @return user
+     * @return users
      *        details of the user           
      */ 
-    public User add(String accountName, User user) {
+    public User add(String accountName,String firstName, String lastName,
+                    long mobileNumber, String password) {
+        User user = new user(accountName, firstName, 
+                             lastName, mobileNumber, password); 
         return instagramService.add(accountName, user);    
     }
 
     /**
      * remove the user
      *
-     * @param String accountName 
+     * @param accountName 
      *        name of the account
-     * @param String createpassword
+     * @param password
      *        password of the account
-     * @return null if sucessfully deleted
-     *          
-     */   
-    public String deleteAccount(String accountName, String createPassword) { 
-        return instagramService.deleteAccount(accountName, createPassword);
+     * @return null if sucessfully deleted         
+     */  
+    public String deleteAccount(String accountName, String password) { 
+        return instagramService.deleteAccount(accountName, password);
     }
 
     /* search the user
@@ -58,7 +60,7 @@ public class InstagramController {
      * @param String accountName 
      *        account name of user
      * @return user
-     *         
+     *         account name of user   
      */   
     public User search(String accountName) { 
         return instagramService.search(accountName);
@@ -68,7 +70,8 @@ public class InstagramController {
      * display the user
      *
      * @param 
-     * @return Map<String, User>          
+     * @return Map<String, User> 
+     *         accounts of user         
      */   
     public Map<String, User> display() { 
         return instagramService.display();
@@ -81,32 +84,60 @@ public class InstagramController {
      *        account name of user
      * @param string updateValue
      *        change detail  of user
-     * @param string accountName
-     *        account name of user
+     * @param int choice
+     *        choice of user
      * @return user
+     *         details of user
      *          
      */   
     public User update(String accountName, String updateValue, int choice) { 
         return instagramService.update(accountName, updateValue, choice);   
     } 
 
+    /**
+     * validate the account name
+     *
+     * @param string accountName
+     *        account name of user
+     * @return if account name valid return true
+     *         else return false         
+     */  
     public boolean isValidAccountName(String accountName) {
-        return InstagramUtil.isValidAccountName(accountName);
+        return instagramUtil.isValidAccountName(accountName);
     }
  
-    public boolean isValidName(String firstName) {
-        return InstagramUtil.isValidName(firstName);
+    /**
+     * validate the name of user
+     *
+     * @param name
+     *        name of user  
+     * @return if name valid return true
+     *         else return false       
+     */
+    public boolean isValidName(String name) {
+        return instagramUtil.isValidName(name);
     }
 
-    public boolean isValidName(String lastName) {
-        return InstagramUlit.isValidName(lastName);
+    /**
+     * validate the mobile number
+     *
+     * @param mobileNumber
+     *        mobile number of user
+     * @return if mobile number valid return true
+     *         else return false               
+     */
+    public boolean isValidMobileNumber(long mobileNumber) {
+        return instagramUtil.isValidMobileNumber(mobileNumber);
     }
 
-    public boolean isValidMobileNumber(String mobileNumber) {
-        return InstagramUtil.isValidmobileNumber(mobileNumber);
-    }
- 
+     * validate the password
+     *
+     * @param password
+     *        password of user
+     * @return if password valid return true
+     *         else return false              
+     */ 
     public boolean isValidPassword(String password) {
-        return InstagramUtil.isValidPassword(password);
+        return instagramUtil.isValidPassword(password);
     }
 }

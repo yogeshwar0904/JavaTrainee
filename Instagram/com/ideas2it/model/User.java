@@ -9,22 +9,22 @@ package com.ideas2it.model;
  * @author      Yogeshwar
  */
 public class User {
+    private String accountName;
     private String firstName;
     private String lastName;
     private long mobileNumber;
-    private String createPassword;
-    private String accountName;
+    private String password;
   
     public User() {}
 
-    public User(String firstName, String lastName, long mobileNumber,
-                String createPassword,
-                String accountName) {
+    public UserProfile(String firstName, String lastName,
+                       String mobileNumber, String createPassword,
+                       String password) {
+        this.accountName = accountName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobileNumber = mobileNumber;
-        this.createPassword = createPassword;
-        this.accountName = accountName;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -52,11 +52,11 @@ public class User {
     }
 
     public String getCreatePassword() {
-        return createPassword;
+        return password;
     }
  
     public void setCreatePassword(String createPassword) {
-        this.createPassword = createPassword;
+        this.password = password;
     }
 
     public String getAccountName() {
@@ -68,12 +68,11 @@ public class User {
     }  
 
     public String toString() {
-        return "__________________________________" + "\n"
-            + "Account Name = " + getAccountName() + "\n"
-            + "First name = " + getFirstName() + "\n"
-            + "Last name = " + getLastName() + "\n"
-            + "Password = " + getCreatePassword() + "\n"
-            + "Mobile Number = " + getMobileNumber()  
-            + "\n______________________________________";
+        StringBuilder showResult = new StringBuilder();
+        showResult.append("\nAccount Name = ").append(getFirstName())
+                  .append("\nFirst Name = ").append(getLastName())
+                  .append("\nLast Name = ").append(getLastName())
+                  .append("\nMobile Number= ").append(getAccountName());
+        return showResult.toString();
     }
 }

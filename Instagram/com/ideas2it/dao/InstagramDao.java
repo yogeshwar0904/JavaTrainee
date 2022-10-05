@@ -23,9 +23,12 @@ public class InstagramDao {
     /**
      * Add the user
      *
-     * @param accountName accountName of the user
-     * @param user details of the user
-     * @return User
+     * @param accountName 
+     *        accountName of the user
+     * @param users 
+     *        details of the user
+     * @return users
+     *         details of user
      */
     public User add(String accountName, User user) {
         accounts.put(accountName, user);
@@ -35,9 +38,9 @@ public class InstagramDao {
     /**
      * remove the user
      *
-     * @param 
-     * @return Map<String, User>
-     *          
+     * @param accountName
+     *        account name of user
+     * @return deleted message                  
      */   
     public String deleteAccount(String accountName, String password) { 
         User user = null;
@@ -54,9 +57,10 @@ public class InstagramDao {
     /**
      * search the user
      *
-     * @param 
-     * @return Map<String, User>
-     *          
+     * @param accountName
+     *        account name of user
+     * @return users
+     *         details of user 
      */   
     public User search(String accountName) { 
         User user = null;
@@ -73,6 +77,7 @@ public class InstagramDao {
      *
      * @param 
      * @return Map<String, User>
+     *         account of user
      */  
     public Map<String, User> display() {
         return accounts;     
@@ -81,9 +86,14 @@ public class InstagramDao {
     /**
      * update the user
      *
-     * @param 
+     * @param accountName
+     *        account name of user
+     * @param updatevalue
+     *        update detail of user
+     * @param choice
+     *        choice of user
      * @return Map<String, User>
-     *          
+     *         account of user 
      */   
     public User update(String accountName, String updateValue, int choice) {
         User user = null;

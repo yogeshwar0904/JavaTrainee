@@ -26,41 +26,47 @@ public class InstagramService {
     /**
      * Add the user
      *
-     * @param String accountName 
+     * @param accountName 
      *        accountName of the user
-     * @param UserProfile user 
+     * @param user 
      *        details of the user
-     * @return UserProfile
+     * @return users
+     *         details of user        
      */
     public User add(String accountName, User user) {
         return instagramDao.add(accountName, user);
     } 
-
+  
     /**
      * remove the user
      *
-     * @param 
-     * @return Map<String, UserProfile>          
-     */   
-    public String deleteAccount(String accountName, String createPassword) { 
-        return instagramDao.deleteAccount(accountName, createPassword);
+     * @param accountName 
+     *        name of the account
+     * @param password
+     *        password of the account
+     * @return null if sucessfully deleted         
+     */ 
+    public String deleteAccount(String accountName, String password) { 
+        return instagramDao.deleteAccount(accountName, password);
     }
-
-    /**
-     * search the user
+   
+    /* search the user
      *
-     * @param 
-     * @return Map<String, User>          
-     */   
+     * @param String accountName 
+     *        account name of user
+     * @return user
+     *         account name of user   
+     */
     public User search(String accountName) { 
         return instagramDao.search(accountName);
     }
 
     /**
-     * Display the user
+     * display the user
      *
      * @param 
      * @return Map<String, User>
+     *         accounts of user
      */
     public Map<String, User> display() {
         return instagramDao.display();     
@@ -73,7 +79,8 @@ public class InstagramService {
      *        accountName of the user
      * @param int choice
      *        choice of the user
-     * @return Map<String, UserProfile>         
+     * @return User
+     *         update the users account        
      */   
     public User update(String accountName, String updateValue, int choice) { 
         return instagramDao.update(accountName, updateValue, choice);
