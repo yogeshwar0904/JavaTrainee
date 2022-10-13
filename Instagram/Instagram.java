@@ -1,5 +1,6 @@
 import com.ideas2it.view.UserView;
 
+
 /**
  * Call the User sugestion method to run the 
  * application.
@@ -8,7 +9,7 @@ import com.ideas2it.view.UserView;
  * @author      Yogeshwar
  */
 public class Instagram {
-    
+        
     public static void main(String[] args) { 
         UserView userView = new UserView();
         userView.userInput();

@@ -1,7 +1,8 @@
 package com.ideas2it.constant;
 
-import java.util.regex.Pattern;  
 import java.util.regex.Matcher;
+import java.util.regex.Pattern; 
+ 
 /**
  * Keep constant value to run the
  * particular features.
@@ -20,11 +21,10 @@ public class Constant {
     public static final int DISPLAY = 3;
     public static final int UPDATE = 4;
     public static final int SEARCH = 5;
-    public static final int EXIT = 6;
 
-    public static final int UPDATEACCOUNTNAME = 1;
-    public static final int UPDATEFIRSTNAME = 2;
-    public static final int UPDATELASTNAME = 3;
-    public static final int UPDATEMOBILENUMBER = 4;
-    public static final int UPDATEPASSWORD = 5;  
+    public static final int UPDATE_ACCOUNT_NAME = 1;
+    public static final int UPDATE_USER_NAME = 2;
+    public static final int UPDATE_MOBILE_NUMBER = 3;
+    public static final int UPDATE_PASSWORD = 4; 
+    public static final int EXIT = 5; 
 }

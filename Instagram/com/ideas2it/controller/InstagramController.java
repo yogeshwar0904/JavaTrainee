@@ -35,10 +35,7 @@ public class InstagramController {
      * @return users
      *        details of the user           
      */ 
-    public User add(String accountName,String firstName, String lastName,
-                    long mobileNumber, String password) {
-        User user = new user(accountName, firstName, 
-                             lastName, mobileNumber, password); 
+    public User add(String accountName, User user) {
         return instagramService.add(accountName, user);    
     }
 
@@ -51,11 +48,12 @@ public class InstagramController {
      *        password of the account
      * @return null if sucessfully deleted         
      */  
-    public String deleteAccount(String accountName, String password) { 
+    public boolean deleteAccount(String accountName, String password) { 
         return instagramService.deleteAccount(accountName, password);
     }
 
-    /* search the user
+    /** 
+     * search the user
      *
      * @param String accountName 
      *        account name of user
@@ -130,6 +128,7 @@ public class InstagramController {
         return instagramUtil.isValidMobileNumber(mobileNumber);
     }
 
+    /**
      * validate the password
      *
      * @param password

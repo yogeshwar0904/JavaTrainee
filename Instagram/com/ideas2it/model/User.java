@@ -1,46 +1,41 @@
 package com.ideas2it.model;
 
 /**
- * Create the account for new user,to
- * post their picture,to feed their memories
- * in their stories to get commends and likes.
+ * Create the account for new user.
  *
  * @version     1.0 13 Sept 2022
  * @author      Yogeshwar
  */
 public class User {
     private String accountName;
-    private String firstName;
-    private String lastName;
+    private String userName;
     private long mobileNumber;
     private String password;
   
     public User() {}
 
-    public UserProfile(String firstName, String lastName,
-                       String mobileNumber, String createPassword,
-                       String password) {
+    public User(String accountName, String userName,
+                long mobileNumber, String password) {
         this.accountName = accountName;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.userName = userName;
         this.mobileNumber = mobileNumber;
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;   
+    public String getAccountName() {
+        return accountName;    
+    } 
+   
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+ 
+    public String getUserName() {
+        return userName;   
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;   
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUserName(String UserName) {
+        this.userName = userName;
     }
 
     public long getMobileNumber() {
@@ -51,28 +46,19 @@ public class User {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getCreatePassword() {
+    public String getPassword() {
         return password;
     }
  
-    public void setCreatePassword(String createPassword) {
+    public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getAccountName() {
-        return accountName;    
-    } 
-   
-    public void setAccountName(String name) {
-        this.accountName = name;
-    }  
-
+ 
     public String toString() {
         StringBuilder showResult = new StringBuilder();
-        showResult.append("\nAccount Name = ").append(getFirstName())
-                  .append("\nFirst Name = ").append(getLastName())
-                  .append("\nLast Name = ").append(getLastName())
-                  .append("\nMobile Number= ").append(getAccountName());
+        showResult.append("\nAccount Name = ").append(getAccountName())
+                  .append("\nUser Name = ").append(getUserName())
+                  .append("\nMobile Number= ").append(getMobileNumber());
         return showResult.toString();
     }
 }

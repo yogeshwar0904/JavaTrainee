@@ -32,7 +32,7 @@ public class InstagramDao {
      */
     public User add(String accountName, User user) {
         accounts.put(accountName, user);
-        return user; 
+        return accounts.get(accountName); 
     }
 
     /**
@@ -42,16 +42,9 @@ public class InstagramDao {
      *        account name of user
      * @return deleted message                  
      */   
-    public String deleteAccount(String accountName, String password) { 
-        User user = null;
-        user = accounts.get(accountName);
- 	System.out.println("user" + user.getCreatePassword());
-        if(null != user && user.getCreatePassword().equals(password)) {
-            accounts.remove(accountName);
-            return "Account removed successfully";
-        } else {
-             return "Entered data Invalid!!";
-        }         
+    public boolean deleteAccount(String accountName, String password) { 
+        User user = accounts.remove(accountName);
+        return accounts.containsKey(accountName);
     }
 
     /**
@@ -63,13 +56,7 @@ public class InstagramDao {
      *         details of user 
      */   
     public User search(String accountName) { 
-        User user = null;
-        user = accounts.get(accountName);
-        if( null == user) {
-            return null;
-        } else {
-            return user;
-        }          
+        return accounts.get(accountName);               
     }
  
     /**
@@ -95,37 +82,7 @@ public class InstagramDao {
      * @return Map<String, User>
      *         account of user 
      */   
-    public User update(String accountName, String updateValue, int choice) {
-        User user = null;
-        user = accounts.get(accountName); 
-        if (null == user) {
-            return null;
-        } else {
-            switch(choice) {
-            case Constant.UPDATEACCOUNTNAME:
-                user.setAccountName(updateValue); 
-                break;
-            case Constant.UPDATEFIRSTNAME:
-                user.setFirstName(updateValue);
-                break;
-
-            case Constant.UPDATELASTNAME:
-                user.setLastName(updateValue);
-                break;
-
-            case Constant.UPDATEMOBILENUMBER:
-                user.setMobileNumber(Long.parseLong(updateValue));
-                break;
-
-            case Constant.UPDATEPASSWORD:	
-                user.setCreatePassword( updateValue);
-                break;
-
-            default:
-                user.setFirstName(updateValue);
-                break;
-            }
-        }
-        return user;
+    public User update(String accountName, User user) {
+         return accounts.put(accountName, user);
     }
 }

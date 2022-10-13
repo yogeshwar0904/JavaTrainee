@@ -6,8 +6,8 @@ import java.util.regex.Matcher;
 import com.ideas2it.constant.Constant;
 
 /**
- *
- *
+ * To validate the user name, account name,
+ * mobileNumber and password.
  */
 public class InstagramUtil {   
     public static boolean isValidAccountName(String accountName) {
